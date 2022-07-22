@@ -1,0 +1,4 @@
+*.pem
+.DS_Store
+*.csv
+__pycache__
