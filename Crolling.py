@@ -47,22 +47,18 @@ class Crolling:
 				soup = BeautifulSoup(html, 'html.parser')
 				for j in [3,4,5,6,7,11,12,13,14,15]:
 					date = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(1) > span').text
-					if date == '2022.03.31':
-						
-						closing_price = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(2) > span').text.replace(',','')
-						market_price = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(4) > span').text.replace(',','')
-						high_price = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(5) > span').text.replace(',','')
-						low_price = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(6) > span').text.replace(',','')
-						sql = (id[0], date, closing_price, market_price, high_price, low_price)
-						self.cur.execute('INSERT IGNORE INTO Stock_Price (stock_id , date, closing_price, market_price, high_price, low_price) VALUES (%s ,%s ,%s ,%s ,%s ,%s)', sql)
-						self.conn.commit()
-						break	
-					else:
-						continue				
-					# if date == '2022.04.01':
-					# 	break
-				if date == '2022.03.31':
-						break
+					closing_price = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(2) > span').text.replace(',','')
+					market_price = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(4) > span').text.replace(',','')
+					high_price = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(5) > span').text.replace(',','')
+					low_price = soup.select_one(f'body > table.type2 > tbody > tr:nth-child({j}) > td:nth-child(6) > span').text.replace(',','')
+					sql = (id[0], date, closing_price, market_price, high_price, low_price)
+					self.cur.execute('INSERT IGNORE INTO Stock_Price (stock_id , date, closing_price, market_price, high_price, low_price) VALUES (%s ,%s ,%s ,%s ,%s ,%s)', sql)
+					self.conn.commit()
+					break	
+				else:
+					continue				
+				if date == '2022.04.01':
+					break
 		self.conn.close()
 		self.driver.quit()
 	def News(self):
