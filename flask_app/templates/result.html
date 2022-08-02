@@ -74,7 +74,25 @@
     <br>
     <br>
     <br>
-
+    <p>
+        <div style="width:400px; height: 500px; border:1px solid rgb(184, 1, 1); margin-right:500px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
+            {% if value > 0.5 %}
+            <div style='font-size:30px;'>
+                기사로 인해 주가가<br> 오르거나 유지될 확률은 <br>{{ value*100 }}% 입니다
+            </div>
+            {% else %}
+            <div style='font-size:30px;'>
+                기사로 인해 주가가 <br> 떨어질 확률은 <br> {{ (1-value)*100 }}% 입니다
+            </div>
+            {% endif %}
+        </div>
+        <div style="width:700px; height:500px; margin-left:50px; border:1px solid rgb(184, 1, 1);" class="fade-in-box">
+            <div style='font-size:12px; text-align: center;'>
+                {{ text }}
+            </div>
+        </div>
+        <div style="width:300px;height:700; margin-right:120px; border:1px gray; float:right" class="fade-in-box"></div>
+    </p>
     
 
 

@@ -31,9 +31,9 @@ def index():
 @app.route('/result', methods=["GET","POST"])
 def result():
     data = request.get_data()
+    text = request.form.get('text')
     res = requests.post('http://-:5001/result', data=data)
-    print(res.text)
-    return render_template('result.html', value = res.text), 200
+    return render_template('result.html', value = round(float(res.text), 4), text=text), 200
 
 @app.route('/notce')
 def notice():
