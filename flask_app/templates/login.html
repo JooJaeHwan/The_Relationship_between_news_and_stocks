@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>stock_news : Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/btn_style_1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fade_in_style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        ul li {
+            list-style-type: none;
+            float: left;
+            margin-left: 75px;
+        }
+    </style>
+    <style>
+        .hidden {
+            border-style: solid;
+            border-color: rgb(211, 211, 211);
+            border-top-width: 0.5px;
+            border-bottom-width: 0.5px;
+            border-left-width: 0.5px;
+            border-right-width: 0.5px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+    </style>
+    <style>
+        .container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background: url("./images/sunrise.jpg");
+        }
+        
+        .title {
+            font-size: 100px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <p>
+                <h1 style="text-align:left; background:rgb(184, 1, 1); height: 130px; color:white; padding:15px; width:700px;" class="fade-in-box">
+                    STOCKS <br>NEWS
+                </h1>
+
+            </p>
+
+            <nav>
+                <ul class="menu">
+                    <li class="fade-in-box"><a href="/index" style="color:rgb(184, 1, 1); text-decoration-line:none; font-size:large;">Home</a></li>
+                    <li class="fade-in-box"><a href="/notice" style="color:rgb(184, 1, 1); text-decoration-line:none; font-size:large;">Notice</a></li>
+                    <li class="fade-in-box"><a href="/info" style="color:rgb(184, 1, 1); text-decoration-line:none; font-size:large;">Info</a></li>
+                </ul>
+
+            </nav>
+
+
+        </div>
+
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>
+        <div style="text-align:center">
+    
+            <form action="/login" method="POST">
+                <input class="hidden" type="userid" name="userid" placeholder="Userid " style="width:150px;height:30px;font-size:15px;">
+                <input class="hidden" type="password" name="password" placeholder="Password" style="width:150px;height:30px;font-size:15px;">
+                <br><br>
+                <input class="custom-btn btn-5 " type="submit" value="로그인">
+            </form>
+        </div>
+
+    </p>
+
+    
+
+
+
+</body>
+
+</html>
