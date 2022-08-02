@@ -32,8 +32,9 @@ def index():
 def result():
     data = request.get_data()
     text = request.form.get('text')
+    time = request.form.get('time')
     res = requests.post('http://-:5001/result', data=data)
-    return render_template('result.html', value = round(float(res.text), 4), text=text), 200
+    return render_template('result.html', value = round(float(res.text), 4), text=text, time=time), 200
 
 @app.route('/notce')
 def notice():

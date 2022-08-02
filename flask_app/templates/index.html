@@ -81,10 +81,10 @@
             <div class="fade-in-box ">
                 <br>
                 <br>
-                <button type="button" class="custom-btn btn-5 " onclick="location.href='/register' ">등록하기</button>
+                <button type="button" class="custom-btn btn-11 " onclick="location.href='/register' ">등록하기</button>
     
     
-                <button type="button" class="custom-btn btn-5 " onclick="location.href='/login' ">로그인</button>
+                <button type="button" class="custom-btn btn-11 " onclick="location.href='/login' ">로그인</button>
         </div>
         </div>
         {% else %}
@@ -96,6 +96,13 @@
                 <br>
                 <br>
                 <div class="fade-in-box " style="word-break:break-all;text-align:center">
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-sm example" name="time">
+                        <option selected>뉴스 시간대를 골라주세요</option>
+                        <option value="1">평일 18시 이전</option>
+                        <option value="2">평일 18시 이후</option>
+                        <option value="3">휴일 전날 18시 이후</option>
+                        <option value="4">휴일</option>
+                      </select>
                     <label style="color:rgb(80, 80, 80); font-size:25px; " maxlength="8 ">궁금하신 뉴스기사 본문을 넣어주세요</label><br><br>
                     <textarea class="hidden" name="text" maxlength="999 " type="text " placeholder="여기에 입력 " style="color:rgb(100, 100, 100); width:800px; height:600px; outline:none; text-align:center;font-size:13px"></textarea>
                 </div>
@@ -106,7 +113,7 @@
     
                 <div class="fade-in-box ">
                     <a href="/result">
-                        <button type="submit " id="send " class="custom-btn btn-5 ">보내기</button>
+                        <button type="submit " id="send " class="custom-btn btn-11 ">보내기</button>
                     </a>
                 </div>
             </div>
