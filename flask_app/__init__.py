@@ -7,12 +7,12 @@ from datetime import timedelta
 mysql = MySQL()
 app = Flask(__name__)
 
-app.config['MYSQL_DATABASE_USER'] = '-'
-app.config['MYSQL_DATABASE_PASSWORD'] = '-'
+app.config['MYSQL_DATABASE_USER'] = 'stocks'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'Stocks!'
 app.config['MYSQL_DATABASE_DB'] = 'User_Info'
 app.config['MYSQL_DATABASE_HOST'] = '-'
 app.config['MYSQL_DATABASE_PORT'] = 3306
-app.secret_key = "-"
+app.secret_key = "9de85b1db330eddaf2a3e861d23db198baafee41a968f8365f4f9acf60fb2e09"
 
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(minutes=5) # 5분후 자동 로그아웃
 mysql.init_app(app)
@@ -33,7 +33,7 @@ def result():
     data = request.get_data()
     text = request.form.get('text')
     time = request.form.get('time')
-    res = requests.post('http://-:5001/result', data=data)
+    res = requests.post('http://127.0.0.1:5001/result', data=text.encode('utf-8'))
     return render_template('result.html', value = round(float(res.text), 4), text=text, time=time), 200
 
 @app.route('/notce')
