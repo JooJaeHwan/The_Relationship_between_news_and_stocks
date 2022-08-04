@@ -76,38 +76,38 @@
     <br>
     <p>
         {% if time == '1' %}
-        <div style="margin-right:1000px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
+        <div style="margin-right:550px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
             {% if value > 0.5 %}
             <div style='font-size:30px;'>
-                <br><br><br><br> 해당 기사로 인해 <strong>당일 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ value*100 }}% 입니다
+                <br><br><br><br> 해당 기사로 인해 <strong>당일 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ positive }}% 입니다
             </div>
             {% else %}
             <div style='font-size:30px;'>
-                <br><br><br><br>해당 기사로 인해 <strong>당일 주가</strong>가 <br> 떨어질 확률은 <br> {{ (1-value)*100 }}% 입니다
+                <br><br><br><br>해당 기사로 인해 <strong>당일 주가</strong>가 <br> 떨어질 확률은 <br> {{ negative }}% 입니다
             </div>
             {% endif %}
         </div>
         {% elif time == '2' %}
-        <div style="margin-right:1000px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
+        <div style="margin-right:550px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
             {% if value > 0.5 %}
             <div style='font-size:30px;'>
-                <br><br><br><br> 해당 기사로 인해 <strong>다음날 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ value*100 }}% 입니다
+                <br><br><br><br> 해당 기사로 인해 <strong>다음날 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ positive }}% 입니다
             </div>
             {% else %}
             <div style='font-size:30px;'>
-                <br><br><br><br> 해당 기사로 인해 <strong>다음날 주가</strong> 가 <br> 떨어질 확률은 <br> {{ (1-value)*100 }}% 입니다
+                <br><br><br><br> 해당 기사로 인해 <strong>다음날 주가</strong> 가 <br> 떨어질 확률은 <br> {{ negative }}% 입니다
             </div>
             {% endif %}
         </div>
         {% else %}
-        <div style="margin-right:1000px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
+        <div style="margin-right:550px; float:right; vertical-align: middle; text-align: center;" class="fade-in-box">
             {% if value > 0.5 %}
             <div style='font-size:30px;'>
-                <br><br><br><br>해당 기사로 인해 <strong>휴일 다음날 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ value*100 }}% 입니다
+                <br><br><br><br>해당 기사로 인해 <strong>휴일 다음날 주가</strong>가<br> 오르거나 유지될 확률은 <br>{{ positive }}% 입니다
             </div>
             {% else %}
             <div style='font-size:30px;'>
-                <br><br><br><br>해당 기사로 인해 <strong>휴일 다음날 주가</strong>가가 <br> 떨어질 확률은 <br> {{ (1-value)*100 }}% 입니다
+                <br><br><br><br>해당 기사로 인해 <strong>휴일 다음날 주가</strong>가가 <br> 떨어질 확률은 <br> {{ negative }}% 입니다
             </div>
             {% endif %}
         </div>

@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import requests
-import pandas as pd
 from flaskext.mysql import MySQL
 from datetime import timedelta
 
@@ -10,7 +9,7 @@ app = Flask(__name__)
 app.config['MYSQL_DATABASE_USER'] = 'stocks'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'Stocks!'
 app.config['MYSQL_DATABASE_DB'] = 'User_Info'
-app.config['MYSQL_DATABASE_HOST'] = '-'
+app.config['MYSQL_DATABASE_HOST'] = 'AWS 주소'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 app.secret_key = "9de85b1db330eddaf2a3e861d23db198baafee41a968f8365f4f9acf60fb2e09"
 
@@ -30,15 +29,16 @@ def index():
 
 @app.route('/result', methods=["GET","POST"])
 def result():
-    data = request.get_data()
     text = request.form.get('text')
     time = request.form.get('time')
-    res = requests.post('http://127.0.0.1:5001/result', data=text.encode('utf-8'))
-    return render_template('result.html', value = round(float(res.text), 4), text=text, time=time), 200
+    res = requests.post('http://외부 아이피 주소/result', data=text.encode('utf-8')) # 포트 포워딩 필요
+    value = float(res.text)
+    positive = value * 100
+    negative = (1 - value) * 100
+    return render_template('result.html', value = float(res.text), text=text, time=time, positive=positive, negative=negative), 200
 
 @app.route('/notce')
 def notice():
-    
     return render_template('notice.html'), 200
 
 
